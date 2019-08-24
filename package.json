@@ -1,0 +1,23 @@
+{
+  "name": "demo-react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "mdx-deck index.mdx",
+    "build": "mdx-deck pdf index.mdx",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "mdx-deck": "^1.10.0",
+    "webpack-dev-middleware": "3.6.0",
+    "raw-loader": "^1.0.0"
+  },
+  "dependencies": {
+    "mdx-deck-code-surfer": "^0.5.5",
+    "mdx-deck-live-code": "^1.0.1",
+    "react-live": "^1.10.0"
+  }
+}

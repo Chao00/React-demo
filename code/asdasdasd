@@ -1,0 +1,33 @@
+---
+<CodeSurfer
+  title="The React Way"
+  code={require("!raw-loader!./code/useEffect.js")}
+  lang="javascript"
+  showNumbers={false}
+  dark={false}
+  steps={[
+    { notes: ""},
+    { range: [2, 5], notes: "Setting initial state and binding function" },
+    { range: [8, 11], notes: "Running at the start" },
+    { range: [15, 18], notes: "Running at the end" },
+    { range: [22, 23], notes: "Running every subsequent update" },
+    { range: [26, 28], notes: "Function to change state" },
+    { range: [1, 36], notes: "" },
+  ]}
+/>
+---
+<CodeSurfer
+  title="The Hooks Way"
+  code={require("!raw-loader!./code/useEffect2.js")}
+  lang="javascript"
+  showNumbers={false}
+  dark={false}
+  steps={[
+    { notes: ""},
+    { range: [2], notes: "Setting initial useState" },
+    { range: [4, 5], notes: "setting function to change state" },
+    { range: [8, 13], notes: "useEffect (lifecycle) for entire ChatAPI" },
+    { range: [16, 19], notes: "Running every subsequent update" },
+    { range: [1, 19], notes: "Much cleaner, Much shorter" },
+  ]}
+/>
