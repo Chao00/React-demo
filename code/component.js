@@ -1,18 +1,8 @@
-class MyComponent extends React.PureComponent {
+class MyComponent extends React.Component {
     constructor() {
         this.state = {
             value: ''
         };
-        onClick = this.onClick.bind(this)
-    }
-
-    componentDidMount() {
-        //window.document.title = `${this.state.value} Component`
-        document.title = "WHY React"
-    }
-
-    componentDidUpdate() {
-        //window.document.title = `${this.state.value} Component`
     }
 
     onClick(e) {
@@ -28,6 +18,13 @@ class MyComponent extends React.PureComponent {
                 <input
                     onChange={e => this.onClick(e)}
                     value={this.state.value}/>
+                <p>
+                The render method is required for all components. You can think of this as your template.
+                </p>
+                <hr></hr>
+                <p>
+                Rendering returns a tree of React component descriptions, which will eventually be turned into HTML
+                </p>
             </>
         );
     }

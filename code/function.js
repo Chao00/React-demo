@@ -1,4 +1,5 @@
 () => {
-    const text = "Functional Component";
-    return <p>{text}</p>
+  const greeting = 'Hello Function Component!';
+
+  return <h1>{greeting}</h1>;
 }

@@ -1,56 +1,110 @@
-export { default as theme } from './theme'
+import { themes } from "mdx-deck";
+export const theme = themes.default;
 import { LiveCode } from "mdx-deck-live-code";
 import { Head } from "mdx-deck";
+import { Box, Heading, Text } from "rebass";
 import { previewStyle, editorStyle } from "./styles";
 
 <Head>
-    <title> WHY React </title>
+  <title> WHY React </title>
 </Head>
 
-# Why React ?
+# React ?
 
-## Why React Hooks ??
+## Components??
 
-### wait... why am I here ??? <img src="img/emoji.PNG"/>
+### Lifecycle methods???
+
+### Hooks????
 
 <br/><br/>
-
-#### By `/^(Ry|Bri)an$/gm`
 
 ---
 
 # React Highlights
 
-<div style={{ textAlign: "center"}}>
-  <img src="./img/react.png" width="100"/>
+<div style={{ textAlign: "center" }}>
+  <img src="./img/react.png" width="100" />
 </div>
 
-* vDOM
-* Flux (one way data flow)
-* Component Composition/Reuse
-
-
-* `<JSX />`...
-
----
-# next =>
-
-## Class or Functional
+- Virtual DOM
+- Component Composition/Reuse
+- Hooks
+- Lifecycle methods
 
 ---
 
+## What is a Component
+
+### Components === State Machines
+
+<Text fontSize={[3, 4, 4]} color="primary">
+  React thinks of UIs as simple state machines. By thinking of a UI as being in
+  various states and rendering those states, it's easy to keep your UI
+  consistent. In React, you simply update a component's state, and then render a
+  new UI based on this new state. React takes care of updating the DOM for you
+  in the most efficient way
+</Text>
+
+### Components === Functions
+
+<Text 
+fontSize={[ 5, 5, 5 ]}
+color='primary'>
+Just like functions take parameters and return a result,
+components take in values and return UI output. 
+Given the same input values, a component will return the same UI output.
+Often described as UI = f(state)</Text>
+---
+## Class or Function Components
+
+---
+
+import { CodeSurfer } from "mdx-deck-code-surfer";
+
+<CodeSurfer
+  title="Declaring Components-- Class VS Function"
+  code={require("!raw-loader!./code/compare_Class_Function.js")}
+  lang="javascript"
+  showNumbers={true}
+  dark={false}
+  steps={[
+    { notes: "" },
+    { range: [3, 3], notes: "Syntax for Class Component" },
+    { range: [4, 4], notes: "The render method is required for all components" },
+    { range: [5, 8], notes: "Rendering returns a tree of React component descriptions, which will eventually be turned into HTML" },
+    { range: [12, 15], notes: "The ReactDOM.render method creates a new component tree, initializes the React library, and appends the output from the component and its children to the given HTML element"},
+    { range: [17, 23], notes: "Functional Component"},
+    { notes: "" }
+]}
+/>
+---
 <LiveCode
-    title="Class component"
-    code={require("!raw-loader!./code/component.js")}
-    previewProps={previewStyle}
-    editorProps={editorStyle}
+  title="Class component -- Internal Data with State"
+  code={require("!raw-loader!./code/component.js")}
+  previewProps={previewStyle}
+  editorProps={editorStyle}
 />
 
-
 ---
 
+<CodeSurfer
+  title="Using Component State"
+  code={require("!raw-loader!./code/component.js")}
+  lang="javascript"
+  showNumbers={true}
+  dark={false}
+  steps={[
+    { notes: "" },
+    { range: [2, 6], notes: "For ES6 class components, initial state is defined in the constructor, or assigned directly using the Class Properties syntax." },
+    { range: [8, 12], notes: "State is updated by calling this.setState({someField : someValue}). You should not  modify the state object directly, as React will not know it was changed" },
+    { range: [9, 10], notes: "Every call to setState triggers a re-render" },
+    { range: [18, 21], notes: "the state object is available as this.state, and can be read from directly"},
+    { notes: "" }
+  ]}
+/>
+---
 <LiveCode
-    size="small"
     title="Functional/ Stateless Components"
     code={require("!raw-loader!./code/function.js")}
     previewProps={previewStyle}
@@ -58,35 +112,73 @@ import { previewStyle, editorStyle } from "./styles";
 />
 ---
 
-## Class Comp.
-
-* Access to states/ [lifecyle methods](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
-* ... but it's wordy and not [webpack friendly](https://itnext.io/react-component-class-vs-stateless-component-e3797c7d23ab)
-
-## Functional
-* Only stateless controls,  `props` to `JSX`
+<CodeSurfer
+  title="One way data flow -- passing data as props"
+  code={require("!raw-loader!./code/function_reuse.js")}
+  lang="javascript"
+  showNumbers={true}
+  dark={false}
+  steps={[
+    { notes: "" },
+    { range: [1, 3], notes: "The child component" },
+    { range: [5, 12], notes: "The Parent component" },
+    { range: [7, 12], notes: "passing data as props to the child component" },
+    { range: [2, 2], notes: "Receive data as props and render" },
+    { notes: "Remember: Props are Read-Only!!" }
+  ]}
+/>
 
 ---
 
+### Class Comp.
+
+- Access to states/ [lifecyle methods](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
+<hr></hr>
+### Functional
+- Simple JavaScript function which returns a React element
+- Only stateless controls, `props`
+- `Hooks`
+<hr></hr>
+### Rules
+- All React components must act like `pure functions` with respect to their props.
+---
+# Lifecycle Methods
+---
+
+<LiveCode
+  title="Lifecycle Methods"
+  code={require("!raw-loader!./code/lifecycles.js")}
+  previewProps={previewStyle}
+  editorProps={editorStyle}
+/>
+---
 # ... Functional
+
 # Stateless ???
 
 ---
+
 <LiveCode
-    title="What if... Don't look at the code yet lol"
-    code={require("!raw-loader!./code/function_hook.js")}
-    previewProps={previewStyle}
-    editorProps={editorStyle}
+  title="React hooks -- useEffect"
+  code={require("!raw-loader!./code/hooks.js")}
+  previewProps={previewStyle}
+  editorProps={editorStyle}
+/>
+---
+<LiveCode
+  title="What if... Don't look at the code yet lol"
+  code={require("!raw-loader!./code/function_hook.js")}
+  previewProps={previewStyle}
+  editorProps={editorStyle}
 />
 
 ---
 
 ## Wait a second...
+
 ### ... we've more `<code/>`
 
 ---
-
-import { CodeSurfer } from "mdx-deck-code-surfer"
 
 <CodeSurfer
   title="You'll see these a lot..."
@@ -95,24 +187,15 @@ import { CodeSurfer } from "mdx-deck-code-surfer"
   showNumbers={true}
   dark={false}
   steps={[
-    { notes: ""},
+    { notes: "" },
     { range: [3, 5], notes: "You need these to support browser routing" },
     { range: [7, 9], notes: "Here is our redux" },
     { range: [11, 13], notes: "You can also add more styles" },
     { range: [16, 18], notes: "Let's add them all" },
-    { range: [20, 25], notes: "btw, there is better way of doing this" },
+    { range: [20, 25], notes: "btw, there is better way of doing this" }
   ]}
 />
 
----
-## HoC
-
-<img src="./img/hoc.PNG"/>
-
----
-## renderProps
-
-<img src="./img/renderProps.PNG"/>
 ---
 
 <CodeSurfer
@@ -122,10 +205,10 @@ import { CodeSurfer } from "mdx-deck-code-surfer"
   showNumbers={true}
   dark={false}
   steps={[
-    { notes: ""},
+    { notes: "" },
     { lines: [2], notes: "Custom paging dots" },
     { range: [3, 10], notes: "Custom left round button" },
-    { range: [11, 18], notes: "Custom right round button" },
+    { range: [11, 18], notes: "Custom right round button" }
   ]}
 />
 
@@ -133,7 +216,7 @@ import { CodeSurfer } from "mdx-deck-code-surfer"
 
 ## Wrapper Hell
 
-<img src="./img/wrapper_hell.png"/>
+<img src="./img/wrapper_hell.png" />
 
 [Solution lol](https://github.com/facebook/react-devtools/pull/503)
 
@@ -144,11 +227,17 @@ import { CodeSurfer } from "mdx-deck-code-surfer"
 ---
 
 ### useState
+
 ### useEffect
+
 ### useContext
+
 ### useReducer
+
 ...
+
 ## useYourOwn
+
 ---
 
 Questions?
@@ -161,9 +250,7 @@ Questions?
   lang="javascript"
   showNumbers={false}
   dark={false}
-  steps={[
-    { notes: ""},
-  ]}
+  steps={[{ notes: "" }]}
 />
 
 ---
@@ -175,13 +262,14 @@ Questions?
   showNumbers={false}
   dark={false}
   steps={[
-    { notes: ""},
+    { notes: "" },
     { range: [5, 5], notes: "declare state" },
-    { range: [8, 11], notes: "Simple render" },
+    { range: [8, 11], notes: "Simple render" }
   ]}
 />
 
 ---
+
 <CodeSurfer
   title="The React Way"
   code={require("!raw-loader!./code/useEffect.js")}
@@ -227,12 +315,11 @@ Questions?
   lang="javascript"
   showNumbers={false}
   dark={false}
-  steps={[
-    { range: [9, 17], notes: "Basic Context Setup" },
-  ]}
+  steps={[{ range: [9, 17], notes: "Basic Context Setup" }]}
 />
 
 ---
+
 <CodeSurfer
   title="React Hooks Context"
   code={require("!raw-loader!./code/useContext2.js")}
@@ -259,7 +346,6 @@ Questions?
 
 ## Usage
 
-<img src="./img/CustomHooks.png"/>
----
+## <img src="./img/CustomHooks.png"/>
 
 ## Thank You! Any Questions?

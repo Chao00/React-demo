@@ -18,6 +18,8 @@
   "dependencies": {
     "mdx-deck-code-surfer": "^0.5.5",
     "mdx-deck-live-code": "^1.0.1",
-    "react-live": "^1.10.0"
+    "react-live": "^1.10.0",
+    "rebass": "^4.0.5",
+    "spectacle-code-slide": "^0.5.2"
   }
 }
