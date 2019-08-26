@@ -152,6 +152,26 @@ import { CodeSurfer } from "mdx-deck-code-surfer";
   editorProps={editorStyle}
 />
 ---
+<CodeSurfer
+  title="Lifecycle Methods..."
+  code={require("!raw-loader!./code/lifecycles.js")}
+  lang="javascript"
+  showNumbers={true}
+  dark={false}
+  steps={[
+    { notes: "" },
+    { range: [2, 5], notes: "We set initial state in the constructor" },
+    { range: [7, 11], notes: "Fired once, after initial rendering occurs" },
+    { range: [34, 38], notes: "Every call to tick will change the state and cause a re-render" },
+    { range: [40, 47], notes: "State has changed need to Re-render" },
+    { range: [29, 32], notes: "Fired immediately before a component is unmounted from the DOM" },
+    { range: [13, 15], notes: "Fired after the component's updates are made to the DOM"},
+    { range: [23, 27], notes: "always called before the render method and enables to define if a re-rendering is needed or can be skipped"},
+    { notes: "" }
+  ]}
+/>
+
+---
 # ... Functional
 
 # Stateless ???

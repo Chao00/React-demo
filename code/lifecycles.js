@@ -13,8 +13,21 @@ class Clock extends React.Component {
     componentDidUpdate() {
         // console.log('componentDidUpdate')
     }
+
+    componentWillReceiveProps(nextProps){
+        if (nextProps.whatever !== this.props.whatever){
+
+        }
+    }
+
+    shouldComponentUpdate(nextProps, nextState){
+        // return true if want it to update
+        // return false if not
+        return true
+    }
   
     componentWillUnmount() {
+        // teardown or cleanup your code before your component disappears
       clearInterval(this.timerID);
     }
   
@@ -27,10 +40,9 @@ class Clock extends React.Component {
     render() {
       return (
         <div>
-          <h1>Hello, world!</h1>
+          <h1>Hello, React!</h1>
           <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
         </div>
       );
     }
   }
-  
